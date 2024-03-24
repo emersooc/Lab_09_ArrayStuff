@@ -74,7 +74,7 @@ public class ArrayStuff
         input = LinearScan();
         count = breakerCode(input);
 
-
+        System.out.println("Average of dataPoints is: "+getAverage(dataPoints));
 
     }
 
@@ -102,19 +102,23 @@ public class ArrayStuff
 
     public static int breakerCode(int target)
     {
-        int count = 0;
         int i = 0;
         for (int dataPoint : dataPoints) {
 
             if (dataPoint == target) {
                 System.out.println("The Number was Found at Index " + i);
-                count++;
+
 
                 System.exit(0);
             }
             i++;
+
+            if (i == 100)
+            {
+                System.out.println("The number "+target+" is not in dataPoints");
+            }
         }
-        return count;
+        return i;
     }
 
     public static double getAverage(int[] values)
